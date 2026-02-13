@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Cinematic Valentine</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:black;
+  overflow:hidden;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* 9:16 Scene */
+.scene{
+  position:relative;
+  width:390px;
+  height:700px;
+  background: radial-gradient(circle at 50% 85%, #3a0f2d 0%, #1a0820 50%, #000 100%);
+  overflow:hidden;
+  border-radius:25px;
+  box-shadow:0 0 60px rgba(255,0,120,0.4);
+}
+
+/* Stars */
+.scene::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size:4px 4px;
+  opacity:0.07;
+}
+
+/* Fog */
+.fog{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:250px;
+  background: radial-gradient(circle at 50% 100%, rgba(255,105,180,0.4), transparent 70%);
+}
+
+/* Sway */
+@keyframes sway{
+  0%{transform:rotate(-2deg);}
+  50%{transform:rotate(2deg);}
+  100%{transform:rotate(-2deg);}
+}
+
+/* Bloom */
+@keyframes bloom{
+  0%{transform:scale(0);opacity:0;}
+  60%{transform:scale(1.15);opacity:1;}
+  100%{transform:scale(1);}
+}
+
+/* Stem */
+.stem{
+  position:absolute;
+  bottom:0;
+  width:6px;
+  height:240px;
+  background:linear-gradient(to top,#14532d,#22c55e,#86efac);
+  border-radius:4px;
+  transform-origin:bottom;
+  animation:sway 8s ease-in-out infinite;
+}
+
+/* Flower */
+.flower{
+  position:absolute;
+  width:110px;
+  height:110px;
+  transform-origin:center bottom;
+  animation:sway 8s ease-in-out infinite;
+}
+
+/* Petals */
+.petal{
+  position:absolute;
+  width:60px;
+  height:95px;
+  background: radial-gradient(circle at 50% 30%, #ffccd5, #ff4d6d 70%, #c9184a 100%);
+  border-radius:50%;
+  top:10px;
+  left:25px;
+  transform-origin:center bottom;
+  filter: drop-shadow(0 0 18px rgba(255,105,180,0.9));
+}
+.petal:nth-child(1){transform:rotate(0deg);}
+.petal:nth-child(2){transform:rotate(45deg);}
+.petal:nth-child(3){transform:rotate(90deg);}
+.petal:nth-child(4){transform:rotate(135deg);}
+.petal:nth-child(5){transform:rotate(180deg);}
+.petal:nth-child(6){transform:rotate(225deg);}
+.petal:nth-child(7){transform:rotate(270deg);}
+.petal:nth-child(8){transform:rotate(315deg);}
+
+/* Center */
+.center{
+  position:absolute;
+  width:40px;
+  height:40px;
+  background: radial-gradient(circle, #fff0f3 0%, #ff8fab 70%);
+  border-radius:50%;
+  top:35px;
+  left:35px;
+  box-shadow:0 0 40px #ff4d6d,0 0 80px #ff99c8;
+  z-index:2;
+}
+
+/* Hearts */
+.heart{
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#ff4d6d;
+  transform:rotate(45deg);
+  animation:float 12s linear infinite;
+}
+.heart::before,.heart::after{
+  content:"";
+  position:absolute;
+  width:18px;height:18px;
+  background:#ff4d6d;border-radius:50%;
+}
+.heart::before{top:-9px;}
+.heart::after{left:-9px;}
+
+@keyframes float{
+  0%{transform:translateY(0) rotate(45deg);opacity:1;}
+  100%{transform:translateY(-900px) rotate(45deg);opacity:0;}
+}
+
+/* Message */
+.message{
+  position:absolute;
+  top:40px;
+  width:100%;
+  text-align:center;
+  color:white;
+  padding:0 20px;
+}
+.message h1{
+  font-size:26px;
+  background:linear-gradient(to right,#ff8fab,#ffc2d1,#ffb3c6);
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 25px rgba(255,105,180,0.6);
+}
+.message p{
+  margin-top:10px;
+  font-size:16px;
+  color:#ffd6e0;
+}
+
+.signature{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-size:15px;
+  color:#ffb3c6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+<div class="message">
+<h1>Happy Valentine's Day ❤️</h1>
+<p>Every flower blooms with love, just like my heart blooms for you.</p>
+</div>
+
+<div class="fog"></div>
+
+<!-- MANY FLOWERS -->
+<div class="stem" style="left:15%;"></div>
+<div class="flower" style="left:5%; bottom:230px; animation:bloom 2s ease forwards, sway 8s ease-in-out infinite;">
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="center"></div></div>
+
+<div class="stem" style="left:35%;"></div>
+<div class="flower" style="left:25%; bottom:260px; animation:bloom 2.5s ease forwards, sway 8s ease-in-out infinite;">
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="center"></div></div>
+
+<div class="stem" style="left:55%;"></div>
+<div class="flower" style="left:45%; bottom:240px; animation:bloom 3s ease forwards, sway 8s ease-in-out infinite;">
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="center"></div></div>
+
+<div class="stem" style="left:75%;"></div>
+<div class="flower" style="left:65%; bottom:255px; animation:bloom 3.5s ease forwards, sway 8s ease-in-out infinite;">
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+<div class="center"></div></div>
+
+<!-- Hearts -->
+<div class="heart" style="left:20%; bottom:0;"></div>
+<div class="heart" style="left:50%; bottom:0; animation-delay:4s;"></div>
+<div class="heart" style="left:70%; bottom:0; animation-delay:7s;"></div>
+
+<div class="signature">
+Forever for <strong>Elsa Novita Sari Situmorang</strong> 💖
+</div>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_5b3a1f93e5.mp3?filename=romantic-piano-ambient-10986.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+</body>
+</html>
