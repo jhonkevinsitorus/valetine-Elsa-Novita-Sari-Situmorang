@@ -1,1 +1,172 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Valentine for Elsa</title><style>body{margin:0;padding:0;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;font-family:Arial,sans-serif}.container{text-align:center;color:white;padding:20px}.h1{font-size:3em;margin:20px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}.heart{font-size:4em;animation:pulse 1s infinite}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}.flower{font-size:3em;margin:10px;animation:sway 3s ease-in-out infinite}@keyframes sway{0%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}100%{transform:rotate(-5deg)}}p{font-size:1.2em;margin:15px 0}</style></head><body><div class="container"><h1>Happy Valentine's Day</h1><div class="heart">❤️</div><div class="flower">🌹</div><div class="flower">🌸</div><div class="flower">🌺</div><p>For Elsa Novita Sari Situmorang</p><p>May your day be filled with love and happiness</p><audio autoplay controls><source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_5b3a1f93e5.mp3" type="audio/mpeg"></audio></div></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Elsa 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #2a0033, #0d0014);
+    color: white;
+}
+
+/* Opening Scene */
+#opening {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    transition: opacity 2s ease;
+}
+
+#opening h2 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+#opening button {
+    padding: 15px 35px;
+    border-radius: 40px;
+    border: none;
+    background: #ff2e88;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#opening button:hover {
+    transform: scale(1.1);
+    background: #ff5fa2;
+}
+
+/* Main Content */
+.container {
+    position: relative;
+    text-align: center;
+    padding: 40px;
+    margin-top: 120px;
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 2s ease;
+}
+
+.container.show {
+    opacity: 1;
+    filter: blur(0);
+}
+
+h1 {
+    font-size: 45px;
+    color: #ffd6f7;
+}
+
+#typedText {
+    max-width: 750px;
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 1.9;
+    color: #ffe6fa;
+}
+
+/* Floating Elements */
+.floating {
+    position: absolute;
+    animation: float linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0% { transform: translateY(110vh) rotate(0deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="opening">
+    <h2>Happy Valentine’s Day 💖</h2>
+    <button onclick="start()">Begin The Story</button>
+</div>
+
+<iframe id="music"
+width="0" height="0"
+src=""
+frameborder="0"
+allow="autoplay">
+</iframe>
+
+<div class="container" id="content">
+    <h1>Elsa Novita Sari Situmorang</h1>
+    <div id="typedText"></div>
+</div>
+
+<script>
+
+function start() {
+    document.getElementById("opening").style.opacity = "0";
+
+    setTimeout(() => {
+        document.getElementById("opening").style.display = "none";
+        document.getElementById("content").classList.add("show");
+        typeWriter();
+    }, 2000);
+
+    document.getElementById("music").src =
+    "https://www.youtube.com/embed/8sX6QKpM2iA?autoplay=1&loop=1&playlist=8sX6QKpM2iA";
+}
+
+const text = `Valentine bukan tentang sesuatu yang besar dan berlebihan.
+
+Ini tentang rasa yang tumbuh pelan.
+Tentang seseorang yang hadir,
+dan membuat dunia terasa sedikit lebih hangat.
+
+Tentang senyum yang tidak dipaksa.
+Tentang ketenangan yang datang tanpa diminta.
+
+Kamu tidak perlu menjadi sempurna,
+karena yang membuat semuanya berbeda…
+adalah kamu.
+
+Dan jika hari ini ada satu hal yang ingin aku pastikan,
+itu adalah kamu tahu —
+bahwa kamu berarti.`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typedText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+    }
+}
+
+// Massive Floating Flowers + Sparkle
+const elements = ["🌸","🌹","🌺","🌷","💐","🌼","🌻","💖","✨","💫"];
+for(let i = 0; i < 250; i++) {
+    let span = document.createElement("span");
+    span.classList.add("floating");
+    span.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.fontSize = (16 + Math.random() * 30) + "px";
+    span.style.animationDuration = (8 + Math.random() * 12) + "s";
+    document.body.appendChild(span);
+}
+
+</script>
+
+</body>
+</html>
